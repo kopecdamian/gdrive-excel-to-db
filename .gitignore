@@ -1,4 +1,5 @@
 service_account.json
+*.log
 
 # Python cache
 __pycache__/
