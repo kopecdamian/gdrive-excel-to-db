@@ -1,16 +1,19 @@
 from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 
 load_dotenv()
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 SPREADSHEET_ID = os.getenv('SPREADSHEET_ID')
 
 # Authorization for Google Drive
 def authenticate():
-    creds = Credentials.from_service_account_file(os.getenv('SERVICE_ACCOUNT_FILE'), scopes = SCOPES)
+    creds = Credentials.from_service_account_file(BASE_DIR / os.getenv('SERVICE_ACCOUNT_FILE'), scopes = SCOPES)
     return creds
 
 # Get Excel file content from Google Drive
