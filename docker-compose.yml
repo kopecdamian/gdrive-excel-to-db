@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  data_loader:
+    build: .
+    image: gdrive-excel-to-db
+    env_file:
+      - .env
+    volumes:
+      - ./secrets:/secrets:ro
+    command: python data_loader/runner.py
+
+  mailer:
+    image: gdrive-excel-to-db
+    env_file:
+      - .env
+    command: python mailer/runner.py
