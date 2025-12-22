@@ -10,6 +10,18 @@ The system operates in two main steps:
 - Formats the data into an HTML summary.
 - Sends the report via AWS SES.
 
-# Installation
-git clone https://github.com/kopecdamian/get-receipts.git
-pip install -r requirements.txt
+# Requirements
+- Docker
+- Docker-compose
+- Python 3.11+
+- AWS account with SES
+- Google account with API access to Drive
+- Configure .env
+
+# Installation and run
+git clone https://github.com/kopecdamian/gdrive-excel-to-db.git
+cd gdrive-excel-to-db
+docker-compose build
+docker-compose run --rm data_loader
+docker-compose run --rm mailer
+
