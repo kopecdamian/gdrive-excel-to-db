@@ -24,4 +24,3 @@ cd gdrive-excel-to-db
 docker-compose build
 docker-compose run --rm data_loader
 docker-compose run --rm mailer
-
